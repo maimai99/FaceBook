@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Account.h"
-#import "Profile.h"
+#import "User.h"
 #import "FeedsManager.h"
 
 int main(int argc, const char * argv[]) {
@@ -34,7 +34,7 @@ int main(int argc, const char * argv[]) {
     
     //create a profile object
     //Step1:
-    Profile* myProfile = [[Profile alloc] initWithFirstname:@"Ali" lastname:@"Reza" address:@"Vancouver, Canada" age:82 phoneNumber:@"12345457" profilePicURL:@"https://gmail.com"];
+    User* myProfile = [[User alloc] initWithFirstname:@"Ali" lastname:@"Reza" address:@"Vancouver, Canada" age:82 phoneNumber:@"12345457" profilePicURL:@"https://gmail.com"];
     
     [myProfile printProfile];
     
