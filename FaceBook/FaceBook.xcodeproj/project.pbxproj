@@ -15,7 +15,6 @@
 		D35BABF21E5E91D90035DDFC /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = D35BABE61E5E91D90035DDFC /* Like.m */; };
 		D35BABF31E5E91DA0035DDFC /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = D35BABE81E5E91D90035DDFC /* Post.m */; };
 		D35BABF41E5E91DA0035DDFC /* PostComment.m in Sources */ = {isa = PBXBuildFile; fileRef = D35BABEA1E5E91D90035DDFC /* PostComment.m */; };
-		D35BABF51E5E91DA0035DDFC /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = D35BABEC1E5E91D90035DDFC /* Profile.m */; };
 		D35BABF61E5E91DA0035DDFC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D35BABEE1E5E91D90035DDFC /* User.m */; };
 /* End PBXBuildFile section */
 
@@ -36,8 +35,6 @@
 		D35BABE81E5E91D90035DDFC /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		D35BABE91E5E91D90035DDFC /* PostComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostComment.h; sourceTree = "<group>"; };
 		D35BABEA1E5E91D90035DDFC /* PostComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostComment.m; sourceTree = "<group>"; };
-		D35BABEB1E5E91D90035DDFC /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
-		D35BABEC1E5E91D90035DDFC /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		D35BABED1E5E91D90035DDFC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		D35BABEE1E5E91D90035DDFC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,8 +92,6 @@
 				D35BABE81E5E91D90035DDFC /* Post.m */,
 				D35BABE91E5E91D90035DDFC /* PostComment.h */,
 				D35BABEA1E5E91D90035DDFC /* PostComment.m */,
-				D35BABEB1E5E91D90035DDFC /* Profile.h */,
-				D35BABEC1E5E91D90035DDFC /* Profile.m */,
 				D35BABED1E5E91D90035DDFC /* User.h */,
 				D35BABEE1E5E91D90035DDFC /* User.m */,
 			);
@@ -176,7 +171,6 @@
 				D35BABF01E5E91D90035DDFC /* Attachment.m in Sources */,
 				D35BABF41E5E91DA0035DDFC /* PostComment.m in Sources */,
 				D35BABEF1E5E91D90035DDFC /* Account.m in Sources */,
-				D35BABF51E5E91DA0035DDFC /* Profile.m in Sources */,
 				D35BABD31E5E91270035DDFC /* main.m in Sources */,
 				D35BABF21E5E91D90035DDFC /* Like.m in Sources */,
 				D35BABF11E5E91D90035DDFC /* FeedsManager.m in Sources */,
@@ -328,6 +322,7 @@
 				D35BABDE1E5E91270035DDFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
