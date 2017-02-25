@@ -13,11 +13,14 @@
 @interface FeedsManager : NSObject
 
 //properties
+@property Post* post;
+
 
 //constructors
+-(id)initWithPost:(Post*)post;
 
 //methods (APIs)
 
 -(NSArray<Post*>*) loadsFeedsForAccount:(Account*)account amount:(int)numberOfFeeds;
-
+-(void)showPosts:(NSArray*)posts;
 @end

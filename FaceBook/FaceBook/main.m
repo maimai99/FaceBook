@@ -39,6 +39,19 @@ int main(int argc, const char * argv[]) {
     //[myProfile printProfile];
     
     
+//    Post* post = [[Post alloc] initWithContent:@"hello"];
+//    
+//    //showing the post
+//    [post showPost];
+    
+    FeedsManager* feedManager = [[FeedsManager alloc] init];
+    
+    NSArray<Post*>* listOfPosts = [feedManager loadsFeedsForAccount:myAccount amount:10];
+    
+    
+    [feedManager showPosts:listOfPosts];
+    
+    
     //Ask Linkedin to show us 10 most recent posts
     
 //    FeedsManager* feedManager = [[FeedsManager alloc] init];
@@ -47,11 +60,11 @@ int main(int argc, const char * argv[]) {
 //    
 //    for(int i=0; i<1; i++)
 //    {
-        Post* post = [[Post alloc] initWithContent:@"hello"];
-        
+//        Post* post = [[Post alloc] initWithContent:@"hello"];
+    
 //        //showing the post
-        [post showPost];
-//        
+//        [post showPost];
+//
 //        //reporting the post
 //        [post reportThePost];
 //        
