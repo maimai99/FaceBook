@@ -7,6 +7,7 @@
 
 @implementation Post
 
+
 -(id)
 //               postId:(NSString*)postId
       initWithContent:(NSString*)content
