@@ -1,25 +1,26 @@
 //
 //  Attachment.h
-//  Linkedin
-//
-//  Created by Alireza Davoodi on 2017-02-21.
-//  Copyright © 2017 CICCC. All rights reserved.
+//  Facebook
 //
 
 #import <Foundation/Foundation.h>
 
 @interface Attachment : NSObject
 
-//properties
+// properties
 
-@property int attachementID;
+@property (strong, nonatomic) NSString *attachementId,
+*dataURL;
 @property int type;
-@property (strong, nonatomic) NSString* dataURL;
 
-//constructors
 
--(id) initWithAttachementID:(int)attachmentID type:(int)type dataURL:(NSString*)dateURL;
+// constructors
 
-//methods (APIs)
+-(id) initWithAttachementId:(NSString*)attachmentId
+                       type:(int)type
+                    dataURL:(NSString*)dateURL;
+
+
+// methods (APIs)
 
 @end

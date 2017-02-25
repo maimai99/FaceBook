@@ -1,9 +1,6 @@
 //
 //  FeedsManager.m
-//  Linkedin
-//
-//  Created by Alireza Davoodi on 2017-02-21.
-//  Copyright © 2017 CICCC. All rights reserved.
+//  Facebook
 //
 
 #import "FeedsManager.h"
@@ -19,7 +16,8 @@
     return self;
 }
 
--(NSArray<Post*>*) loadsFeedsForAccount:(Account*)account amount:(int)numberOfFeeds
+-(NSArray<Post*>*) loadsFeedsForAccount:(Account*)account
+                                 amount:(int)numberOfFeeds
 {
     //現時刻を取得してPost内で表示
     NSDate *date = [NSDate date];
@@ -29,8 +27,7 @@
     NSString *date24 = [dateFormatter stringFromDate:date];
     
     
-    
-    Attachment *attach1 = [[Attachment alloc]initWithAttachementID:1 type:1 dataURL:@"http://gmail"];
+    Attachment *attach1 = [[Attachment alloc]initWithAttachementId:@"1" type:1 dataURL:@"http://gmail"];
 
     
     NSMutableArray<Attachment*>* attachments = [[NSMutableArray alloc] initWithObjects:attach1,nil];

@@ -1,66 +1,80 @@
 //
 //  Profile.m
-//  Linkedin
-//
-//  Created by Alireza Davoodi on 2017-02-21.s
-//  Copyright © 2017 CICCC. All rights reserved.
+//  Facebook
 //
 
 #import "User.h"
 
 @implementation User
 
--(id) initWithFirstname:(NSString*)firstname lastname:(NSString*)lastname age:(int)age profilePicURL:(NSString*)profilePicURL
+-(id) initWithFirstName:(NSString*)firstName
+               lastName:(NSString*)lastName
+                  email:(NSString*)email
+            phoneNumber:(NSString*)phoneNumber
+               location:(NSString*)location
+          profilePicURL:(NSString*)profilePicURL
+                    age:(int)age
+               timezome:(int)timezome
+               birthday:(int)birthday
 {
-    //step1: memory allocation
     self = [super init];
     
-    //step2: properties initialization
-    if(self)
+    if (self)
     {
-        self.firstname = firstname;
-        self.lastname = lastname;
-        //self.address = address;
-        self.age = age;
-        //self.phoneNumber = phoneNumber;
-        
+        self.firstName = firstName;
+        self.lastName = lastName;
+        self.email = email;
+        self.phoneNumber = phoneNumber;
+        self.location = location;
         self.profilePicURL = profilePicURL;
+        self.age = age;
+        self.timezome = timezome;
+        self.birthday = birthday;
     }
     
     return self;
 }
 
 
--(void) editProfileWithNewfirstname:(NSString*)newFirstname newLastname:(NSString*)newLastname newAddress:(NSString*)newAddress newAge:(int)newAge newPhoneNumber:(NSString*)newPhoneNumber newProfilePicURL:(NSString*)newProfilePicURL
+-(void) editProfileWithNewfirstName:(NSString*)newFirstName
+                        newLastName:(NSString*)newLastName
+                           newEmail:(NSString*)newEmail
+                     newPhoneNumber:(NSString*)newPhoneNumber
+                        newLocation:(NSString*)newLocation
+                   newProfilePicURL:(NSString*)newProfilePicURL
+                             newAge:(int)newAge
+                        newTimezone:(int)newTimezone
+                        newBirthday:(int)newBirthday
 {
-    self.firstname = newFirstname;
-    self.lastname = newLastname;
-    //self.address = newAddress;
-    
-    self.age = newAge;
-    //self.phoneNumber = newPhoneNumber;
+    self.firstName = newFirstName;
+    self.lastName = newLastName;
+    self.email = newEmail;
+    self.phoneNumber = newPhoneNumber;
+    self.location = newLocation;
     self.profilePicURL = newProfilePicURL;
-    
-    
+    self.age = newAge;
+    self.timezome = newTimezone;
+    self.birthday = newBirthday;
 }
+
 
 -(void) saveProfile
 {
     NSLog(@"\nAccount has been successfully updated!\n");
 }
 
+
 -(void) printProfile
 {
     NSLog(@"\n==============================\n");
-    
-    NSLog(@"Firstname is %@\n", self.firstname);
-    NSLog(@"Lastname is %@\n", self.lastname);
-    
-    NSLog(@"Address is %@\n", self.address);
-    NSLog(@"Age is %d\n", self.age);
-    
-    NSLog(@"Phone# is %@\n", self.phoneNumber);
-    NSLog(@"My Profile Picture is located at this link %@\n", self.profilePicURL);
+    NSLog(@"Name: %@ %@\n", self.firstName, self.lastName);
+    NSLog(@"Email: %@\n", self.email);
+    NSLog(@"Phone: %@\n", self.phoneNumber);
+    NSLog(@"Location: %@\n", self.location);
+    NSLog(@"Time-zone: %d\n", self.timezome);
+    NSLog(@"Age: %d\n", self.age);
+    NSLog(@"Birthday: %d\n", self.birthday);
+    NSLog(@"Profile Picture: %@\n", self.profilePicURL);
     NSLog(@"\n==============================\n");
 }
 
