@@ -18,6 +18,7 @@
 
 @property (strong, nonatomic) NSDate* date;
 @property (strong, nonatomic) User* author;
+@property (strong, nonatomic) NSString* content;
 
 @property (strong, nonatomic) NSMutableArray<Attachment*>* attachments;
 @property int numberOfLikes;
@@ -32,17 +33,20 @@
 
 //constructors
 
--(id) initWithDate:(NSDate*)date author:(User*)author attachments:(NSMutableArray<Attachment*>*)attachments numberOflikes:(int)nofLikes numberOfComments:(int)nofComments likes:(NSMutableArray<Like*>*)likes comments:(NSMutableArray<PostComment*>*)comments type:(int)type;
+-(id) initWithContent:(NSString*)content;
+
+
+//-(id) initWithDate:(NSDate*)date author:(User*)author attachments:(NSMutableArray<Attachment*>*)attachments numberOflikes:(int)nofLikes numberOfComments:(int)nofComments likes:(NSMutableArray<Like*>*)likes comments:(NSMutableArray<PostComment*>*)comments type:(int)type;
 
 //methods (APIs)
 
--(void) addLike:(Like*) newLike;
--(void) addComment:(PostComment*) newComment;
-
--(void) EditPostWithNewAttachments:(NSArray<Attachment*>*) newAttachments newType:(int) newType;
-
--(void) reportThePost;
-
--(void) show;
+//-(void) addLike:(Like*) newLike;
+//-(void) addComment:(PostComment*) newComment;
+//
+//-(void) EditPostWithNewAttachments:(NSArray<Attachment*>*) newAttachments newType:(int) newType;
+//
+//-(void) reportThePost;
+//
+-(void) showPost;
 
 @end
