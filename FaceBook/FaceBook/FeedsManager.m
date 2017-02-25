@@ -28,7 +28,14 @@
     dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     NSString *date24 = [dateFormatter stringFromDate:date];
     
-    Post *postContent = [[Post alloc] initWithContent:@"AAAAAAAAAAAAAAA" date:date24 author:@"mai" attachments:@"Try This Bier!" comments:@"Are you joking?"];
+    
+    
+    Attachment *attach1 = [[Attachment alloc]initWithAttachementID:1 type:1 dataURL:@"http://gmail"];
+
+    
+    NSMutableArray<Attachment*>* attachments = [[NSMutableArray alloc] initWithObjects:attach1,nil];
+    
+    Post *postContent = [[Post alloc] initWithContent:@"AAAAAAAAAAAAAAA" date:date24 author:@"mai" attachments:attach1 comments:@"Are you joking?"];
     
     NSArray<Post*>* posts = [[NSArray alloc] initWithObjects:postContent,nil];
     
