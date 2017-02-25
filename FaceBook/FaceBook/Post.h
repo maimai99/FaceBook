@@ -16,7 +16,7 @@
 
 //properties
 
-@property (strong, nonatomic) NSDate* date;
+@property (strong, nonatomic) NSString* date;
 @property (strong, nonatomic) User* author;
 @property (strong, nonatomic) NSString* content;
 
@@ -33,7 +33,7 @@
 
 //constructors
 
--(id) initWithContent:(NSString*)content date:(NSDate*)date author:(User*)author attachments:(NSMutableArray<Attachment*>*)attachments comments:(NSMutableArray<PostComment*>*)comments;
+-(id) initWithContent:(NSString*)content date:(NSString*)date author:(User*)author attachments:(NSMutableArray<Attachment*>*)attachments comments:(NSMutableArray<PostComment*>*)comments;
 
 
 //-(id) initWithDate:(NSDate*)date author:(User*)author attachments:(NSMutableArray<Attachment*>*)attachments numberOflikes:(int)nofLikes numberOfComments:(int)nofComments likes:(NSMutableArray<Like*>*)likes comments:(NSMutableArray<PostComment*>*)comments type:(int)type;

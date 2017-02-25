@@ -10,7 +10,7 @@
 
 @implementation Post
 
--(id) initWithContent:(NSString*)content date:(NSDate*)date author:(User*)author attachments:(NSMutableArray<Attachment*>*)attachments comments:(NSMutableArray<PostComment*>*)comments{
+-(id) initWithContent:(NSString*)content date:(NSString*)date author:(User*)author attachments:(NSMutableArray<Attachment*>*)attachments comments:(NSMutableArray<PostComment*>*)comments{
     self = [super init];
     if (self) {
         self.content = content;
