@@ -10,7 +10,7 @@
 
 @implementation User
 
--(id) initWithFirstname:(NSString*)firstname lastname:(NSString*)lastname address:(NSString*)address age:(int)age phoneNumber:(NSString*)phoneNumber profilePicURL:(NSString*)profilePicURL
+-(id) initWithFirstname:(NSString*)firstname lastname:(NSString*)lastname age:(int)age profilePicURL:(NSString*)profilePicURL
 {
     //step1: memory allocation
     self = [super init];
@@ -20,9 +20,9 @@
     {
         self.firstname = firstname;
         self.lastname = lastname;
-        self.address = address;
+        //self.address = address;
         self.age = age;
-        self.phoneNumber = phoneNumber;
+        //self.phoneNumber = phoneNumber;
         
         self.profilePicURL = profilePicURL;
     }
@@ -35,10 +35,10 @@
 {
     self.firstname = newFirstname;
     self.lastname = newLastname;
-    self.address = newAddress;
+    //self.address = newAddress;
     
     self.age = newAge;
-    self.phoneNumber = newPhoneNumber;
+    //self.phoneNumber = newPhoneNumber;
     self.profilePicURL = newProfilePicURL;
     
     

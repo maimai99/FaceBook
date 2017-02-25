@@ -10,10 +10,15 @@
 
 @implementation Post
 
--(id) initWithContent:(NSString*)content{
+-(id) initWithContent:(NSString*)content date:(NSDate*)date author:(User*)author attachments:(NSMutableArray<Attachment*>*)attachments comments:(NSMutableArray<PostComment*>*)comments{
     self = [super init];
     if (self) {
         self.content = content;
+        self.date = date;
+        self.author = author;
+        self.attachments = attachments;
+        self.comments = comments;
+        
     }
     return self;
 }
@@ -70,11 +75,10 @@
 -(void) showPost
 {
     NSLog(@"\n\nContent:%@\n\n",self.content);
-//    NSLog(@"Date:%@\n",self.author);
-//    NSLog(@"Date:%@\n",self.attachments);
-//    NSLog(@"Date:%d\n",self.numberOfLikes);
-//    NSLog(@"Date:%d\n",self.numberOfComments);
-//    NSLog(@"Date:%@\n",self.comments);
+    NSLog(@"Date:%@\n",self.author);
+    NSLog(@"Date:%@\n",self.attachments);
+    NSLog(@"Date:%@\n",self.date);
+    NSLog(@"Date:%@\n",self.comments);
 }
 
 @end

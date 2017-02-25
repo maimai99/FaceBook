@@ -21,11 +21,17 @@
 
 -(NSArray<Post*>*) loadsFeedsForAccount:(Account*)account amount:(int)numberOfFeeds
 {
+    //現時刻を取得してPost内で表示
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    NSString *date24 = [dateFormatter stringFromDate:date];
     
-    Post *post1 = [[Post alloc] initWithContent:@"Hello1"];
-    Post *post2 = [[Post alloc] initWithContent:@"Hello2"];
+    Post *postContent = [[Post alloc] initWithContent:@"AAAAAAAAAAAAAAA" date:date24 author:@"mai" attachments:@"Try This Bier!" comments:@"Are you joking?"];
     
-    NSArray<Post*>* posts = [[NSArray alloc] initWithObjects:post1,post2,nil];
+    NSArray<Post*>* posts = [[NSArray alloc] initWithObjects:postContent,nil];
+    
     
     return posts;
 }
@@ -34,7 +40,11 @@
     
     for (Post *post in posts) {
         
+        NSLog(@"%@\n\n",post.date);
+        NSLog(@"%@\n\n",post.author);
         NSLog(@"%@\n\n",post.content);
+        NSLog(@"%@\n\n",post.attachments);
+        NSLog(@"%@\n\n",post.comments);
         
     }
 }

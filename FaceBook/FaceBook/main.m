@@ -10,6 +10,7 @@
 #import "Account.h"
 #import "User.h"
 #import "FeedsManager.h"
+#import "Post.h"
 
 int main(int argc, const char * argv[]) {
     
@@ -44,31 +45,26 @@ int main(int argc, const char * argv[]) {
 //    //showing the post
 //    [post showPost];
     
-    FeedsManager* feedManager = [[FeedsManager alloc] init];
-    
-    NSArray<Post*>* listOfPosts = [feedManager loadsFeedsForAccount:myAccount amount:10];
-    
-    
-    [feedManager showPosts:listOfPosts];
     
     
     //Ask Linkedin to show us 10 most recent posts
     
-//    FeedsManager* feedManager = [[FeedsManager alloc] init];
-//    
-//    NSArray<Post*>* listOfPosts = [feedManager loadsFeedsForAccount:myAccount amount:10];
-//    
-//    for(int i=0; i<1; i++)
-//    {
-//        Post* post = [[Post alloc] initWithContent:@"hello"];
+    FeedsManager* feedManager = [[FeedsManager alloc] init];
+    NSArray<Post*>* listOfPosts = [feedManager loadsFeedsForAccount:myAccount amount:10];
     
-//        //showing the post
-//        [post showPost];
-//
-//        //reporting the post
-//        [post reportThePost];
-//        
-//        
+    
+    
+    for(int i=0; i<1; i++)
+    {
+        [feedManager showPosts:listOfPosts];
+    
+        //showing the post
+        
+
+        //reporting the post
+       // [post reportThePost];
+        
+        
 //        //adding a like to the post
 //        User* user = [[User alloc] init];
 //        NSDate* date = [NSDate date];
@@ -89,7 +85,7 @@ int main(int argc, const char * argv[]) {
 //        
 //        [post addComment:comment];
         
-  //  }
+    }
     
     
     
