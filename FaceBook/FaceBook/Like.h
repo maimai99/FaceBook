@@ -1,9 +1,6 @@
 //
 //  Like.h
-//  Linkedin
-//
-//  Created by Alireza Davoodi on 2017-02-21.
-//  Copyright © 2017 CICCC. All rights reserved.
+//  Facebook
 //
 
 #import <Foundation/Foundation.h>
@@ -11,17 +8,19 @@
 
 @interface Like : NSObject
 
-//properties
+// properties
 
-@property int likeID;
-@property (strong, nonatomic) User* likeOwner;
-@property (strong, nonatomic) NSDate* date;
+@property (strong, nonatomic) NSString *likeId;
+@property (strong, nonatomic) User *likeOwner;
+@property (strong, nonatomic) NSDate *date;
 
-//constructors
 
--(id) initWithLikeID:(int)likeID likeOwner:(User*)likeOwner date:(NSDate*)date;
+// constructors
 
-//methods (APIs)
+-(id) initWithLikeID:(NSString*)likeId
+           likeOwner:(User*)likeOwner
+                date:(NSDate*)date;
 
+// methods (APIs)
 
 @end

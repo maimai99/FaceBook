@@ -1,31 +1,52 @@
 //
 //  Profile.h
-//  Linkedin
-//
-//  Created by Alireza Davoodi on 2017-02-21.
-//  Copyright © 2017 CICCC. All rights reserved.
+//  Facebook
 //
 
 #import <Foundation/Foundation.h>
 
 @interface User : NSObject
 
-//properties
+// properties
 
-@property (strong, nonatomic) NSString* firstname;
-@property (strong, nonatomic) NSString* lastname;
-@property (strong, nonatomic) NSString* address;
-@property int age;
-@property (strong, nonatomic) NSString* phoneNumber;
-@property (strong, nonatomic) NSString* profilePicURL;
+@property (strong, nonatomic) NSString *firstName,
+*lastName,
+*email,
+*phoneNumber,
+*location,
+*profilePicURL;
+@property int age,
+timezome,
+birthday;
 
-//constructors
--(id) initWithFirstname:(NSString*)firstname lastname:(NSString*)lastname address:(NSString*)address age:(int)age phoneNumber:(NSString*)phoneNumber profilePicURL:(NSString*)profilePicURL;
 
-//methods (APIs)
--(void) editProfileWithNewfirstname:(NSString*)newFirstname newLastname:(NSString*)newLastname newAddress:(NSString*)newAddress newAge:(int)newAge newPhoneNumber:(NSString*)newPhoneNumber newProfilePicURL:(NSString*)newProfilePicURL;
+// constructors
+
+-(id) initWithFirstName:(NSString*)firstName
+               lastName:(NSString*)lastName
+                  email:(NSString*)email
+            phoneNumber:(NSString*)phoneNumber
+               location:(NSString*)location
+          profilePicURL:(NSString*)profilePicURL
+                    age:(int)age
+               timezome:(int)timezome
+               birthday:(int)birthday;
+
+
+// methods (APIs)
+
+-(void) editProfileWithNewfirstName:(NSString*)newFirstName
+                        newLastName:(NSString*)newLastName
+                           newEmail:(NSString*)newEmail
+                     newPhoneNumber:(NSString*)newPhoneNumber
+                        newLocation:(NSString*)newLocation
+                   newProfilePicURL:(NSString*)newProfilePicURL
+                             newAge:(int)newAge
+                        newTimezone:(int)newTimezone
+                        newBirthday:(int)newBirthday;
 
 -(void) saveProfile;
 
 -(void) printProfile;
+
 @end

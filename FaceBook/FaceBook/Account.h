@@ -1,27 +1,25 @@
 //
 //  Account.h
-//  Linkedin
-//
-//  Created by Alireza Davoodi on 2017-02-21.
-//  Copyright © 2017 CICCC. All rights reserved.
+//  Facebook
 //
 
 #import <Foundation/Foundation.h>
 
 @interface Account : NSObject
 
-//properties
+// properties
 
-//username
-//password
-@property (strong, nonatomic) NSString* username;
-@property (strong, nonatomic) NSString* password;
+@property (strong, nonatomic) NSString *username,
+*password;
 
-//constructors
 
--(id) initWithUsername:(NSString*)myUsername password:(NSString*)myPassword;
+// constructors
 
-//methods (APIs)
+-(id) initWithUsername:(NSString*)myUsername
+              password:(NSString*)myPassword;
+
+
+// methods (APIs)
 
 -(BOOL) isAccountValid;
 
