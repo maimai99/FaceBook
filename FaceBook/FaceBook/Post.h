@@ -18,7 +18,7 @@
 *content,
 *location,
 *privacy;
-@property (strong, nonatomic) NSDate *date;
+@property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) User *author;
 @property int likeCount;
 @property (strong, nonatomic) NSMutableArray<Attachment*> *attachments;
@@ -29,16 +29,16 @@
 // constructors
 
 -(id)
-//               postId:(NSString*)postId
+               postId:(NSString*)postId
       initWithContent:(NSString*)content
-                 date:(NSDate*)date
+                 date:(NSString*)date
                author:(User*)author
-//               location:(NSString*)location
-//        likeCount:(int)likeCount
+               location:(NSString*)location
+        likeCount:(int)likeCount
           attachments:(NSMutableArray<Attachment*>*)attachments
-//                likes:(NSMutableArray<Like*>*)likes
-             comments:(NSMutableArray<PostComment*>*)comments;
-//               privacy:(NSString*)privacy
+                likes:(NSMutableArray<Like*>*)likes
+             comments:(NSMutableArray<PostComment*>*)comments
+              privacy:(NSString*)privacy;
 
 
 // methods (APIs)

@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSString *commentId,
 *comment;
 @property (strong, nonatomic) User *commentAuthor;
-@property (strong, nonatomic) NSDate *date;
+@property (strong, nonatomic) NSString *date;
 @property int likeCount;
 
 
@@ -24,7 +24,7 @@
 -(id) initWithCommentId:(NSString*)commentId
                 comment:(NSString*)comment
           commentAuthor:(User*)commentAuthor
-                   date:(NSDate*)date
+                   date:(NSString*)date
               likeCount:(int)likeCount;
 
 

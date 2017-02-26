@@ -84,22 +84,32 @@
     NSMutableArray<PostComment*>* comments = [[NSMutableArray alloc]initWithObjects:comment1, nil];
     
     
-    Post *post1 = [[Post alloc]
-                         initWithContent:@"AAAAAAAAAAAAAAA"
-                         date:@"2017/02/17 22:15:46"
-                         author:user1
-                         attachments:attachments
-                         comments:comments];
-    
-    Post *post2 = [[Post alloc]
-                   initWithContent:@"BBBBBBBBBBBBBB"
-                   date:@"2017/02/17 22:15:46"
-                   author:user1
-                   attachments:attachments
-                   comments:comments];
+    Post *post1 = [[Post alloc] postId:@""
+                       initWithContent:@""
+                                  date:@""
+                                author:@"AAAAAAAAAAAAAAA"
+                              location:@""
+                             likeCount:1
+                           attachments:attachments
+                                 likes:<#(NSMutableArray<Like *> *)#>
+                              comments:comments
+                               privacy:@"ALL_FRIENDS"];
+//    Post *post1 = [[Post alloc]
+//                         initWithContent:@"AAAAAAAAAAAAAAA"
+//                         date:@"2017/02/17 22:15:46"
+//                         author:user1
+//                         attachments:attachments
+//                         comments:comments];
+//    
+//    Post *post2 = [[Post alloc]
+//                   initWithContent:@"BBBBBBBBBBBBBB"
+//                   date:@"2017/02/17 22:15:46"
+//                   author:user1
+//                   attachments:attachments
+//                   comments:comments];
     
     NSArray<Post*>* posts = [[NSArray alloc]
-                             initWithObjects:post1,post2, nil];
+                             initWithObjects:post1, post2, nil];
     
     return posts;
 }

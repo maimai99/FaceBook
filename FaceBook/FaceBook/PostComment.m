@@ -10,7 +10,7 @@
 -(id) initWithCommentId:(NSString*)commentId
                 comment:(NSString*)comment
           commentAuthor:(User*)commentAuthor
-                   date:(NSDate*)date
+                   date:(NSString*)date
               likeCount:(int)likeCount
 {
     self = [super init];

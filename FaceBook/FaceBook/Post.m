@@ -11,7 +11,7 @@
 -(id)
       initWithContent:(NSString*)content
                 postId:(NSString*)postId
-                 date:(NSDate*)date
+                 date:(NSString*)date
                author:(User*)author
                location:(NSString*)location
         likeCount:(int)likeCount
