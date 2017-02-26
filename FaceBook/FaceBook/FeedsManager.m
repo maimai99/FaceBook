@@ -130,7 +130,11 @@
         NSLog(@"\n\n%@\n%@ %@\n%@\n",
               post.date,
               post.author.firstName, post.author.lastName,
-              post.content);
+              post.content
+              
+              
+              
+              );
         
         for(Attachment *attachment in post.attachments){
 
@@ -147,5 +151,44 @@
 
     }
 }
+
+// login userの friends list を用意する
+// NSMutableArray<User*>* friendList = user1, user2 ....
+
+
+// user1のpostがあるかをチェックする。。。どこに？どうやって？
+
+// どこに？ ... postデータがまとまってる配列 ... つまり 今あるpostsが使えるじゃん？！
+
+// posts の 1コずつのpost の author をひろって、friendListのuser達と イコールになるかをチェックすればいいんでない？
+
+// イコールになったら showする
+
+// それだけじゃなくって、privacy設定もチェックして、self以外だったらshowする
+
+
+
+
+
+
+
+
+
+
+// Add post method
+
+// TODO: Post class を１個用意する
+
+// TODO: post3 の各attributs にvalueを埋めていく
+
+    // author = 今loginしてるUser
+    // date = scanfを読み取った時間 ( getCurrentDate をcallすると、returnで現時刻が取得できるはず)
+    // content = scanfしたやつ
+    // attachments, likes, comments は 中身がnilのArrayだけを代入してあげる
+
+
+// TODO: array posts に addObjectで post3を追加する
+
+// TODO: show post をcallする
 
 @end
