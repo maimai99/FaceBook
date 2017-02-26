@@ -39,9 +39,9 @@
 -(NSArray<Post*>*) loadsFeedsForAccount:(Account*)account amount:(int)numberOfFeeds
 {
     User *user1 = [[User alloc]
-                   initWithFirstName:@"mai"
-                   lastName:@"hoshino"
-                   email:@"http://gmail.com"
+                   initWithFirstName:@"Mai"
+                   lastName:@"Hoshino"
+                   email:@"mai@gmail.com"
                    phoneNumber:@"0804567898"
                    location:@"burnaby"
                    profilePicURL:@"http://gmail.com"
@@ -50,14 +50,36 @@
                    birthday:19920604];
     
     User *user2 = [[User alloc]
-                   initWithFirstName:@"maki"
-                   lastName:@"toda"
-                   email:@"http://google.com"
+                   initWithFirstName:@"Maki"
+                   lastName:@"Toda"
+                   email:@"maki@gmail.com"
                    phoneNumber:@"0804567898"
                    location:@"vancouver"
                    profilePicURL:@"http://gmail.com"
                    age:25
                    timezome:0000
+                   birthday:19901104];
+    
+    User *user3 = [[User alloc]
+                   initWithFirstName:@"John"
+                   lastName:@"Doe"
+                   email:@"john@gmail.com"
+                   phoneNumber:@"0804567898"
+                   location:@"vancouver"
+                   profilePicURL:@"http://gmail.com"
+                   age:20
+                   timezome:0000
+                   birthday:19901104];
+    
+    User *user4 = [[User alloc]
+                   initWithFirstName:@"Michael"
+                   lastName:@"Jackson"
+                   email:@"michael@gmail.com"
+                   phoneNumber:@"0804567898"
+                   location:@"New York"
+                   profilePicURL:@"http://gmail.com"
+                   age:40
+                   timezome:0400
                    birthday:19901104];
     
     Attachment *attach1 = [[Attachment alloc]
@@ -94,9 +116,9 @@
     
     
     Post *post1 = [[Post alloc]
-                   initWithContent:@"AAAAAAAAAAAAAAA"
+                   initWithContent:@"Hello, this is post1."
                    postId:@"uhs357"
-                   date:@"2017/02/17 22:15:46"
+                   date:@"2017/02/15 22:15:46"
                    author:user1
                    location:@"south vancouver"
                    likeCount:1
@@ -106,12 +128,48 @@
                    privacy:@"ALL_FRIENDS"];
     
     Post *post2 = [[Post alloc]
-                   initWithContent:@"BBBBBBBBBBBBBBBB"
+                   initWithContent:@"Hello, this is post2."
                    postId:@"poj879"
                    date:@"2017/02/17 22:15:46"
                    author:user2
                    location:@"west vancouver"
                    likeCount:2
+                   attachments:attachments
+                   likes:likes
+                   comments:comments
+                   privacy:@"ALL_FRIENDS"];
+    
+    Post *post3 = [[Post alloc]
+                   initWithContent:@"Hello, this is post3."
+                   postId:@"5ertjt"
+                   date:@"2017/02/18 22:15:46"
+                   author:user3
+                   location:@"west vancouver"
+                   likeCount:2
+                   attachments:attachments
+                   likes:likes
+                   comments:comments
+                   privacy:@"SELF"];
+    
+    Post *post4 = [[Post alloc]
+                   initWithContent:@"Hello, this is post4."
+                   postId:@"eait43"
+                   date:@"2017/02/20 10:10:00"
+                   author:user2
+                   location:@"East Vancouver"
+                   likeCount:0
+                   attachments:attachments
+                   likes:likes
+                   comments:comments
+                   privacy:@"EVERYONE"];
+    
+    Post *post5 = [[Post alloc]
+                   initWithContent:@"Hello, this is post5."
+                   postId:@"4rji3q"
+                   date:@"2017/02/20 10:00:00"
+                   author:user4
+                   location:@"New York"
+                   likeCount:0
                    attachments:attachments
                    likes:likes
                    comments:comments
