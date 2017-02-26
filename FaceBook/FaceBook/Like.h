@@ -12,14 +12,14 @@
 
 @property (strong, nonatomic) NSString *likeId;
 @property (strong, nonatomic) User *likeOwner;
-@property (strong, nonatomic) NSDate *date;
+@property (strong, nonatomic) NSString *date;
 
 
 // constructors
 
 -(id) initWithLikeID:(NSString*)likeId
            likeOwner:(User*)likeOwner
-                date:(NSDate*)date;
+                date:(NSString*)date;
 
 // methods (APIs)
 

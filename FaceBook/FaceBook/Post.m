@@ -8,8 +8,7 @@
 @implementation Post
 
 
--(id)
-      initWithContent:(NSString*)content
+-(id)initWithContent:(NSString*)content
                 postId:(NSString*)postId
                  date:(NSString*)date
                author:(User*)author

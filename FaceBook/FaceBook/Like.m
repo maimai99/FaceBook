@@ -9,7 +9,7 @@
 
 -(id) initWithLikeID:(NSString*)likeId
            likeOwner:(User*)likeOwner
-                date:(NSDate*)date;
+                date:(NSString*)date;
 {
     self = [super init];
     

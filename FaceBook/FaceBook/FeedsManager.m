@@ -81,32 +81,41 @@
                              date:@"2017/02/17 22:15:46"
                              likeCount:1];
     
-    NSMutableArray<PostComment*>* comments = [[NSMutableArray alloc]initWithObjects:comment1, nil];
+    NSMutableArray<PostComment*>* comments = [[NSMutableArray alloc]
+                                              initWithObjects:comment1, nil];
+    
+    Like *like1 = [[Like alloc]
+                   initWithLikeID:@"nmk245"
+                   likeOwner:user1
+                   date:@"2017/02/17 22:15:46"];
+    
+    NSMutableArray<Like*>* likes = [[NSMutableArray alloc]
+                                    initWithObjects:like1, nil];
     
     
-    Post *post1 = [[Post alloc] postId:@""
-                       initWithContent:@""
-                                  date:@""
-                                author:@"AAAAAAAAAAAAAAA"
-                              location:@""
-                             likeCount:1
-                           attachments:attachments
-                                 likes:<#(NSMutableArray<Like *> *)#>
-                              comments:comments
-                               privacy:@"ALL_FRIENDS"];
-//    Post *post1 = [[Post alloc]
-//                         initWithContent:@"AAAAAAAAAAAAAAA"
-//                         date:@"2017/02/17 22:15:46"
-//                         author:user1
-//                         attachments:attachments
-//                         comments:comments];
-//    
-//    Post *post2 = [[Post alloc]
-//                   initWithContent:@"BBBBBBBBBBBBBB"
-//                   date:@"2017/02/17 22:15:46"
-//                   author:user1
-//                   attachments:attachments
-//                   comments:comments];
+    Post *post1 = [[Post alloc]
+                   initWithContent:@"AAAAAAAAAAAAAAA"
+                   postId:@"uhs357"
+                   date:@"2017/02/17 22:15:46"
+                   author:user1
+                   location:@"south vancouver"
+                   likeCount:1
+                   attachments:attachments
+                   likes:likes
+                   comments:comments
+                   privacy:@"ALL_FRIENDS"];
+    
+    Post *post2 = [[Post alloc]
+                   initWithContent:@"BBBBBBBBBBBBBBBB"
+                   postId:@"poj879"
+                   date:@"2017/02/17 22:15:46"
+                   author:user2
+                   location:@"west vancouver"
+                   likeCount:2
+                   attachments:attachments
+                   likes:likes
+                   comments:comments
+                   privacy:@"ALL_FRIENDS"];
     
     NSArray<Post*>* posts = [[NSArray alloc]
                              initWithObjects:post1, post2, nil];
