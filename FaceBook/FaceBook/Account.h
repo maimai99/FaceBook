@@ -4,22 +4,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @interface Account : NSObject
 
 // properties
 
-@property (strong, nonatomic) NSString *username,
+@property (strong, nonatomic) NSString *email,
 *password;
 
 
 // constructors
 
--(id) initWithUsername:(NSString*)myUsername
-              password:(NSString*)myPassword;
+-(id) initWithEmail:(NSString*)email
+           password:(NSString*)password;
 
 
 // methods (APIs)
+
+-(NSMutableArray<User*>*) allUsers;
 
 -(BOOL) isAccountValid;
 

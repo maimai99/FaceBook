@@ -7,20 +7,22 @@
 
 @implementation User
 
--(id) initWithFirstName:(NSString*)firstName
-               lastName:(NSString*)lastName
-                  email:(NSString*)email
-            phoneNumber:(NSString*)phoneNumber
-               location:(NSString*)location
-          profilePicURL:(NSString*)profilePicURL
-                    age:(int)age
-               timezome:(int)timezome
-               birthday:(int)birthday
+-(id) initWithUserId:(NSString*)userId
+           FirstName:(NSString*)firstName
+            lastName:(NSString*)lastName
+               email:(NSString*)email
+         phoneNumber:(NSString*)phoneNumber
+            location:(NSString*)location
+       profilePicURL:(NSString*)profilePicURL
+                 age:(int)age
+            timezome:(int)timezome
+            birthday:(int)birthday
 {
     self = [super init];
     
     if (self)
     {
+        self.userId = userId;
         self.firstName = firstName;
         self.lastName = lastName;
         self.email = email;
@@ -67,6 +69,7 @@
 -(void) printProfile
 {
     NSLog(@"\n==============================\n");
+    NSLog(@"UserID: %@\n", self.userId);
     NSLog(@"Name: %@ %@\n", self.firstName, self.lastName);
     NSLog(@"Email: %@\n", self.email);
     NSLog(@"Phone: %@\n", self.phoneNumber);
