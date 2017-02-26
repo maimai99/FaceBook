@@ -9,31 +9,31 @@
 
 
 -(id)
-//               postId:(NSString*)postId
       initWithContent:(NSString*)content
+                postId:(NSString*)postId
                  date:(NSDate*)date
                author:(User*)author
-//               location:(NSString*)location
-//        likeCount:(int)likeCount
+               location:(NSString*)location
+        likeCount:(int)likeCount
           attachments:(NSMutableArray<Attachment*>*)attachments
-//                likes:(NSMutableArray<Like*>*)likes
+                likes:(NSMutableArray<Like*>*)likes
              comments:(NSMutableArray<PostComment*>*)comments
-//               privacy:(NSString*)privacy
+               privacy:(NSString*)privacy
 {
     self = [super init];
     
     if (self)
     {
-//        self.postId = postId;
+        self.postId = postId;
         self.content = content;
         self.date = date;
         self.author = author;
-//        self.location = location;
-//        self.likeCount = likeCount;
+        self.location = location;
+        self.likeCount = likeCount;
         self.attachments = attachments;
-//        self.likes = likes;
+        self.likes = likes;
         self.comments = comments;
-//        self.privacy = privacy;
+        self.privacy = privacy;
     }
     
     return self;

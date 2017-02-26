@@ -5,6 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Account.h"
+#import "Attachment.h"
 #import "Post.h"
 
 @interface FeedsManager : NSObject

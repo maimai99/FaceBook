@@ -38,10 +38,68 @@
 
 -(NSArray<Post*>*) loadsFeedsForAccount:(Account*)account amount:(int)numberOfFeeds
 {
-    Attachment *attach1 = [[Attachment alloc]initWithAttachementID:1 type:1 dataURL:@"http://gmail"];
-    NSMutableArray<Attachment*>* attachments = [[NSMutableArray alloc] initWithObjects:attach1,nil];
-    Post *postContent = [[Post alloc] initWithContent:@"AAAAAAAAAAAAAAA" date:@"2017/02/17 22:15:46" author:@"mai" attachments:attachments comments:@"Are you joking?"];
-    NSArray<Post*>* posts = [[NSArray alloc] initWithObjects:postContent,nil];
+    User *user1 = [[User alloc]
+                   initWithFirstName:@"mai"
+                   lastName:@"hoshino"
+                   email:@"http://gmail.com"
+                   phoneNumber:@"0804567898"
+                   location:@"burnaby"
+                   profilePicURL:@"http://gmail.com"
+                   age:24
+                   timezome:0000
+                   birthday:19920604];
+    
+    User *user2 = [[User alloc]
+                   initWithFirstName:@"maki"
+                   lastName:@"toda"
+                   email:@"http://google.com"
+                   phoneNumber:@"0804567898"
+                   location:@"vancouver"
+                   profilePicURL:@"http://gmail.com"
+                   age:25
+                   timezome:0000
+                   birthday:19901104];
+    
+    Attachment *attach1 = [[Attachment alloc]
+                           initWithAttachementId:@"abc123"
+                           type:1
+                           dataURL:@"http://gmail.com"];
+    
+    Attachment *attach2 = [[Attachment alloc]
+                           initWithAttachementId:@"abc123"
+                           type:2
+                           dataURL:@"http://yahoo.co.jp"];
+    
+    NSMutableArray<Attachment*>* attachments = [[NSMutableArray alloc]
+                                                initWithObjects:attach1,attach2,nil];
+    
+    
+    PostComment *comment1 = [[PostComment alloc]
+                             initWithCommentId:@"hjk678"
+                             comment:@"Hi"
+                             commentAuthor:user2
+                             date:@"2017/02/17 22:15:46"
+                             likeCount:1];
+    
+    NSMutableArray<PostComment*>* comments = [[NSMutableArray alloc]initWithObjects:comment1, nil];
+    
+    
+    Post *post1 = [[Post alloc]
+                         initWithContent:@"AAAAAAAAAAAAAAA"
+                         date:@"2017/02/17 22:15:46"
+                         author:user1
+                         attachments:attachments
+                         comments:comments];
+    
+    Post *post2 = [[Post alloc]
+                   initWithContent:@"BBBBBBBBBBBBBB"
+                   date:@"2017/02/17 22:15:46"
+                   author:user1
+                   attachments:attachments
+                   comments:comments];
+    
+    NSArray<Post*>* posts = [[NSArray alloc]
+                             initWithObjects:post1,post2, nil];
     
     return posts;
 }
