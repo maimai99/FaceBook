@@ -127,16 +127,19 @@
     
     for (Post *post in posts) {
         
-        NSLog(@"%@\n\n　%@\n　%@\n　%@\n",post.date,post.author.firstName,post.author.lastName,post.content);
+        NSLog(@"\n\n%@\n%@ %@\n%@\n",
+              post.date,
+              post.author.firstName, post.author.lastName,
+              post.content);
         
-        for(Attachment *attachment in attachments){
+        for(Attachment *attachment in post.attachments){
 
-            NSLog(@"%@\n",post.attachment.dataURL);
+            NSLog(@"%@\n", attachment.dataURL);
         }
         
-        for(PostComment *comment1 in posts){
+        for(PostComment *comment in post.comments){
             
-            NSLog(@"%@\n",post.comments.comment);
+            NSLog(@"%@\n", comment.comment);
         }
         
         //↓これだとobject自体が対象になるのでもう少し絞る
