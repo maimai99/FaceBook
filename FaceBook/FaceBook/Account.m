@@ -25,7 +25,8 @@
     
     User *user1 = [[User alloc]
                    initWithUserId:@"542joi"
-                   FirstName:@"Mai"
+                   password:@"pass123"
+                   firstName:@"Mai"
                    lastName:@"Hoshino"
                    email:@"mai@gmail.com"
                    phoneNumber:@"0804567898"
@@ -37,7 +38,8 @@
     
     User *user2 = [[User alloc]
                    initWithUserId:@"43q5ru"
-                   FirstName:@"Maki"
+                   password:@"pass123"
+                   firstName:@"Maki"
                    lastName:@"Toda"
                    email:@"maki@gmail.com"
                    phoneNumber:@"0804567898"
@@ -49,7 +51,8 @@
     
     User *user3 = [[User alloc]
                    initWithUserId:@"4q23uh"
-                   FirstName:@"John"
+                   password:@"pass123"
+                   firstName:@"John"
                    lastName:@"Doe"
                    email:@"john@gmail.com"
                    phoneNumber:@"0804567898"
@@ -61,7 +64,8 @@
     
     User *user4 = [[User alloc]
                    initWithUserId:@"9fawhr"
-                   FirstName:@"Michael"
+                   password:@"pass123"
+                   firstName:@"Michael"
                    lastName:@"Jackson"
                    email:@"michael@gmail.com"
                    phoneNumber:@"0804567898"
@@ -76,11 +80,23 @@
     return allUsers;
 }
 
--(BOOL) isAccountValid {
+-(User*) isAccountValid:(NSString*)email password:(NSString*)password {
     
-    // TODO: check data
+    User *loginUser = [[User alloc] init];
     
-    return true;
+    NSMutableArray<User*> *allUsers = [self allUsers];
+    
+    for (User *user in allUsers) {
+        
+        if ([email isEqualToString:user.email] && [password isEqualToString:user.password]) {
+            
+            loginUser = user;
+            
+            break;
+        }
+    }
+    
+    return loginUser;
 }
 
 @end

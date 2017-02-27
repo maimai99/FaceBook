@@ -8,7 +8,8 @@
 @implementation User
 
 -(id) initWithUserId:(NSString*)userId
-           FirstName:(NSString*)firstName
+            password:(NSString*)password
+           firstName:(NSString*)firstName
             lastName:(NSString*)lastName
                email:(NSString*)email
          phoneNumber:(NSString*)phoneNumber
@@ -23,6 +24,7 @@
     if (self)
     {
         self.userId = userId;
+        self.password = password;
         self.firstName = firstName;
         self.lastName = lastName;
         self.email = email;
@@ -66,18 +68,17 @@
 }
 
 
--(void) printProfile
-{
+-(void) printProfileWithUser:(User*)user {
     NSLog(@"\n==============================\n");
-    NSLog(@"UserID: %@\n", self.userId);
-    NSLog(@"Name: %@ %@\n", self.firstName, self.lastName);
-    NSLog(@"Email: %@\n", self.email);
-    NSLog(@"Phone: %@\n", self.phoneNumber);
-    NSLog(@"Location: %@\n", self.location);
-    NSLog(@"Time-zone: %d\n", self.timezome);
-    NSLog(@"Age: %d\n", self.age);
-    NSLog(@"Birthday: %d\n", self.birthday);
-    NSLog(@"Profile Picture: %@\n", self.profilePicURL);
+    NSLog(@"UserID: %@\n", user.userId);
+    NSLog(@"Name: %@ %@\n", user.firstName, user.lastName);
+    NSLog(@"Email: %@\n", user.email);
+    NSLog(@"Phone: %@\n", user.phoneNumber);
+    NSLog(@"Location: %@\n", user.location);
+    NSLog(@"Time-zone: %d\n", user.timezome);
+    NSLog(@"Age: %d\n", user.age);
+    NSLog(@"Birthday: %d\n", user.birthday);
+    NSLog(@"Profile Picture: %@\n", user.profilePicURL);
     NSLog(@"\n==============================\n");
 }
 

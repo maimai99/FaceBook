@@ -12,6 +12,7 @@
 // properties
 
 @property (strong, nonatomic) NSString *userId,
+*password,
 *firstName,
 *lastName,
 *email,
@@ -26,7 +27,8 @@ birthday;
 // constructors
 
 -(id) initWithUserId:(NSString*)userId
-           FirstName:(NSString*)firstName
+            password:(NSString*)password
+           firstName:(NSString*)firstName
             lastName:(NSString*)lastName
                email:(NSString*)email
          phoneNumber:(NSString*)phoneNumber
@@ -51,6 +53,6 @@ birthday;
 
 -(void) saveProfile;
 
--(void) printProfile;
+-(void) printProfileWithUser:(User*)user;
 
 @end
