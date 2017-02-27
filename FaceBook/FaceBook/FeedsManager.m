@@ -36,6 +36,10 @@
     return strDate;
 }
 
+-(NSString *) getScanfContent{
+    
+}
+
 -(NSArray<Post*>*) loadsFeedsForAccount:(Account*)account amount:(int)numberOfFeeds
 {
     User *user1 = [[User alloc]
@@ -117,24 +121,35 @@
                    comments:comments
                    privacy:@"ALL_FRIENDS"];
     
+    Post *post3 = [[Post alloc]
+                   initWithContent:@"jghj"
+                   postId:@"xyo592"
+                   date:[self getCurrentDate]
+                   author:[Account ]
+                   location:@"west vancouver"
+                   likeCount:0
+                   attachments:attachments
+                   likes:likes
+                   comments:comments
+                   privacy:@"ALL_FRIENDS"];
+    
     NSArray<Post*>* posts = [[NSArray alloc]
-                             initWithObjects:post1, post2, nil];
+                             initWithObjects:post1, post2, post3, nil];
     
     return posts;
 }
 
 -(void)showPosts:(NSArray<Post*>*)posts {
     
+    NSLog(@"\nPost anything you like:\n");
+    scanf("%s",&content);
+    
     for (Post *post in posts) {
         
         NSLog(@"\n\n%@\n%@ %@\n%@\n",
               post.date,
               post.author.firstName, post.author.lastName,
-              post.content
-              
-              
-              
-              );
+              post.content);
         
         for(Attachment *attachment in post.attachments){
 
@@ -176,8 +191,6 @@
 
 
 // Add post method
-
-// TODO: Post class を１個用意する
 
 // TODO: post3 の各attributs にvalueを埋めていく
 
