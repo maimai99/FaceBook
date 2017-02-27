@@ -8,7 +8,8 @@
 @implementation User
 
 -(id) initWithUserId:(NSString*)userId
-           FirstName:(NSString*)firstName
+            password:(NSString*)password
+           firstName:(NSString*)firstName
             lastName:(NSString*)lastName
                email:(NSString*)email
          phoneNumber:(NSString*)phoneNumber
@@ -23,6 +24,7 @@
     if (self)
     {
         self.userId = userId;
+        self.password = password;
         self.firstName = firstName;
         self.lastName = lastName;
         self.email = email;

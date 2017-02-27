@@ -24,6 +24,6 @@
 
 -(NSMutableArray<User*>*) allUsers;
 
--(BOOL) isAccountValid;
+-(User*) isAccountValid:(NSString*)email password:(NSString*)password;
 
 @end
