@@ -23,7 +23,7 @@
 
 // methods (APIs)
 
--(NSArray<Post*>*) loadsFeedsForUser:(User*)loginUser amount:(int)numberOfFeeds;
+-(NSArray<Post*>*) loadsFeedsForUser:(User*)loginUser allPosts:(NSMutableArray<Post*>*)allPosts amount:(int)numberOfFeeds;
 
 -(NSMutableArray<Post*>*)allPosts;
 

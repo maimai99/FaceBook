@@ -54,8 +54,7 @@ int main(int argc, const char * argv[]) {
     //Ask Linkedin to show us 10 most recent posts
     //callする前にどっかでイニシャライズ
     FeedsManager* feedManager = [[FeedsManager alloc] init];
-    NSArray<Post*>* listOfPosts = [feedManager loadsFeedsForUser:loginUser amount:10];
-    
+    NSArray<Post*>* listOfPosts = [feedManager loadsFeedsForUser:loginUser allPosts:[feedManager allPosts] amount:10];
     
     for(int i=0; i<1; i++) {
         
@@ -100,7 +99,7 @@ int main(int argc, const char * argv[]) {
     
     //分かりにくかったら変数（箱）用意して書いてみても良い。(二行に分けてね)
     [allPosts addObject:[feedManager addPost:loginUser]];
-    [feedManager showPosts:[feedManager loadsFeedsForUser:loginUser amount:10]];
+    [feedManager showPosts:[feedManager loadsFeedsForUser:loginUser allPosts:allPosts amount:10]];
     
     return NSApplicationMain(argc, argv);
 }

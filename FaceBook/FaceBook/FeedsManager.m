@@ -142,17 +142,13 @@
 
 
 
--(NSArray<Post*>*) loadsFeedsForUser:(User*)loginUser amount:(int)numberOfFeeds
-
-{
-    
+-(NSArray<Post*>*) loadsFeedsForUser:(User*)loginUser allPosts:(NSMutableArray<Post*>*)allPosts amount:(int)numberOfFeeds {
     
     // Get all users
     Account *account = [[Account alloc] init];
     NSMutableArray<User*> *users = [account allUsers];
     
-    
-    
+
     // -------------------------------------------------------
     // Define friends list for the account user
     // -------------------------------------------------------
@@ -172,17 +168,14 @@
         friendList = [@[] mutableCopy];
     }
     
+    
     // -------------------------------------------------------
     // Narrow posts down to the friend's posts of account user
     // -------------------------------------------------------
     
-    
     NSMutableArray<Post*>* feeds = [@[] mutableCopy];
     
-    
-    NSMutableArray<Post*> *allPostsVal = [[NSMutableArray alloc] initWithObjects: [self allPosts],nil];
-    
-    for (Post *post in allPostsVal) {
+    for (Post *post in allPosts) {
         
         for (User *friend in friendList) {
             
@@ -204,9 +197,6 @@
 
 -(void)showPosts:(NSArray<Post*>*)posts {
     
-//    NSLog(@"\nPost anything you like:\n");
-//    scanf("%s",&content);
-    
     for (Post *post in posts) {
         
         NSLog(@"\n\n%@\n%@ %@\n%@\n",
@@ -224,40 +214,34 @@
             NSLog(@"%@\n", comment.comment);
         }
     }
+    
+    NSLog(@"\n\n");
 }
 
--(Post*)addPost:(User *)loginUser {
+-(Post*) addPost:(User *)loginUser {
     
     char charContent[500] = {0};
-    scanf("%s",charContent);
-                                    //casting時のoriginal method
+    NSLog(@"[Creat new post]\nEnter comment:");
+    scanf("%s", charContent);
+    
+    //casting時のoriginal method
     NSString *content = [NSString stringWithCString:charContent encoding:NSUTF8StringEncoding];
     
-    NSString *date = [self getCurrentDate];
     NSString *postID = @"ajd768";
-    NSString *location = @"japan";
-    
-    NSMutableArray<Attachment*>*attachments = [[NSMutableArray alloc]init];
-    NSMutableArray<Like*>* likes = [[NSMutableArray alloc]init];
-    NSMutableArray<PostComment*>* comments = [[NSMutableArray alloc]init];
-
-
     
     Post *newPost = [[Post alloc]
                      initWithContent:content
                      postId:postID
-                     date:date
+                     date:[self getCurrentDate]
                      author:loginUser
-                     location:location
+                     location:@"Vancouver"
                      likeCount:0
-                     attachments:attachments
-                     likes:likes
-                     comments:comments
+                     attachments:[[NSMutableArray alloc]init]
+                     likes:[[NSMutableArray alloc]init]
+                     comments:[[NSMutableArray alloc]init]
                      privacy:@"ALL_FRIENDS"];
     
     return newPost;
 }
-
-
 
 @end
