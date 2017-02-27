@@ -35,7 +35,7 @@ int main(int argc, const char * argv[]) {
     
     // 正しければ loginUserにそのuserを代入する
     
-    loginUser = users[1]; // loginUser: Mai
+    loginUser = users[1]; // loginUser[0]Mai [1]maki
     
     //create a profile object
     //Step1:
@@ -52,9 +52,10 @@ int main(int argc, const char * argv[]) {
     
     
     //Ask Linkedin to show us 10 most recent posts
-    
+    //callする前にどっかでイニシャライズ
     FeedsManager* feedManager = [[FeedsManager alloc] init];
     NSArray<Post*>* listOfPosts = [feedManager loadsFeedsForUser:loginUser amount:10];
+    
     
     for(int i=0; i<1; i++) {
         
@@ -87,7 +88,20 @@ int main(int argc, const char * argv[]) {
         
     }
     
+    //step1:全部のpostのarrayを取得
+    //step2:addPostをallPosts arrayの最後に追加
+    //step3:show
     
+    //return data type をvoidからPostに(直接feedsManager classのmethodの型弄るだけ)
+    NSMutableArray<Post*>*allPosts = [feedManager allPosts];
+    
+    
+    //分かりにくかったら変数（箱）用意して書いてみても良い。(二行に分けてね)
+    [allPosts addObject:[feedManager addPost:loginUser]];
+    [feedManager showPosts:[feedManager loadsFeedsForUser:loginUser amount:10]];
     
     return NSApplicationMain(argc, argv);
 }
+
+
+

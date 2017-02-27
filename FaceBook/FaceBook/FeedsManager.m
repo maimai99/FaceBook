@@ -36,15 +36,10 @@
     return strDate;
 }
 
-
--(NSArray<Post*>*) loadsFeedsForUser:(User*)loginUser amount:(int)numberOfFeeds
-
-{
+-(NSMutableArray<Post*>*)allPosts{
     
-    // Get all users
     Account *account = [[Account alloc] init];
     NSMutableArray<User*> *users = [account allUsers];
-    
     
     Attachment *attach1 = [[Attachment alloc]
                            initWithAttachementId:@"abc123"
@@ -77,6 +72,7 @@
     
     NSMutableArray<Like*>* likes = [[NSMutableArray alloc]
                                     initWithObjects:like1, nil];
+    
     
     Post *post1 = [[Post alloc]
                    initWithContent:@"Hello, this is post1."
@@ -138,8 +134,24 @@
                    comments:comments
                    privacy:@"ALL_FRIENDS"];
     
-
+    
     NSMutableArray<Post*> *posts = [[NSMutableArray alloc] initWithObjects:post1, post2, post3, post4, post5, nil];
+    
+    return posts;
+}
+
+
+
+-(NSArray<Post*>*) loadsFeedsForUser:(User*)loginUser amount:(int)numberOfFeeds
+
+{
+    
+    
+    // Get all users
+    Account *account = [[Account alloc] init];
+    NSMutableArray<User*> *users = [account allUsers];
+    
+    
     
     // -------------------------------------------------------
     // Define friends list for the account user
@@ -164,9 +176,13 @@
     // Narrow posts down to the friend's posts of account user
     // -------------------------------------------------------
     
+    
     NSMutableArray<Post*>* feeds = [@[] mutableCopy];
     
-    for (Post *post in posts) {
+    
+    NSMutableArray<Post*> *allPostsVal = [[NSMutableArray alloc] initWithObjects: [self allPosts],nil];
+    
+    for (Post *post in allPostsVal) {
         
         for (User *friend in friendList) {
             
@@ -183,6 +199,7 @@
     
     return feeds;
 }
+
 
 
 -(void)showPosts:(NSArray<Post*>*)posts {
@@ -209,43 +226,32 @@
     }
 }
 
-
-// login userの friends list を用意する
-// NSMutableArray<User*>* friendList = user1, user2 ....
-
-
-// user1のpostがあるかをチェックする。。。どこに？どうやって？
-
-// どこに？ ... postデータがまとまってる配列 ... つまり 今あるpostsが使えるじゃん？！
-
-// posts の 1コずつのpost の author をひろって、friendListのuser達と イコールになるかをチェックすればいいんでない？
-
-// イコールになったら showする
-
-// それだけじゃなくって、privacy設定もチェックして、self以外だったらshowする
+-(Post*)addPost:(User *)loginUser {
+    
+    NSString *content = @"helloooo";
+    NSString *date = [self getCurrentDate];
+    NSString *postID = @"ajd768";
+    NSString *location = @"japan";
+    
+    NSMutableArray<Attachment*>*attachments = [[NSMutableArray alloc]init];
+    NSMutableArray<Like*>* likes = [[NSMutableArray alloc]init];
+    NSMutableArray<PostComment*>* comments = [[NSMutableArray alloc]init];
 
 
-
-
-
-
-
-
-
-
-// Add post method
-
-// TODO: post3 の各attributs にvalueを埋めていく
-
-    // author = 今loginしてるUser
-    // date = scanfを読み取った時間 ( getCurrentDate をcallすると、returnで現時刻が取得できるはず)
-    // content = scanfしたやつ
-    // attachments, likes, comments は 中身がnilのArrayだけを代入してあげる
-
-
-// TODO: array posts に addObjectで post3を追加する
-
-// TODO: show post をcallする
-
+    
+    Post *newPost = [[Post alloc]
+                     initWithContent:content
+                     postId:postID
+                     date:date
+                     author:loginUser
+                     location:location
+                     likeCount:0
+                     attachments:attachments
+                     likes:likes
+                     comments:comments
+                     privacy:@"ALL_FRIENDS"];
+    
+    return newPost;
+}
 
 @end

@@ -7,6 +7,7 @@
 #import "Account.h"
 #import "Attachment.h"
 #import "Post.h"
+#import "User.h"
 
 @interface FeedsManager : NSObject
 
@@ -24,6 +25,8 @@
 
 -(NSArray<Post*>*) loadsFeedsForUser:(User*)loginUser amount:(int)numberOfFeeds;
 
--(void)showPosts:(NSArray*)posts;
+-(NSMutableArray<Post*>*)allPosts;
 
+-(void)showPosts:(NSArray*)posts;
+-(Post*)addPost:(User *)loginUser ;
 @end
