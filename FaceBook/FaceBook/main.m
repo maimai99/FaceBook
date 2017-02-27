@@ -11,24 +11,31 @@
 
 int main(int argc, const char * argv[]) {
     
-    //create an account object
+    Account* myAccount = [[Account alloc] initWithEmail:@"mai@gmail" password:@"pass123"];
     
-    //Step1: Creating an account object
-    Account* myAccount = [[Account alloc] initWithUsername:@"alireza" password:@"ali123"];
+    // TODO: 正しいID/PWを入力するまで、while loopでscanfを繰り返す
     
+    Account *account = [[Account alloc] init];
     
+    NSMutableArray<User*> *users = [account allUsers];
     
-    //Step2: Checking whether the account is valid or not
+    // Checking whether the account is valid or not
     BOOL isValid = [myAccount isAccountValid];
     
-    if(isValid==true)
-    {
+    User *loginUser;
+    
+    if (isValid == true) {
         NSLog(@"\n\nThe account is valid\n\n");
-    }
-    else
-    {
+        
+        
+    } else {
         NSLog(@"\n\nThe account is Not valid\n\n");
     }
+    
+    
+    // 正しければ loginUserにそのuserを代入する
+    
+    loginUser = users[1]; // loginUser: Mai
     
     //create a profile object
     //Step1:
@@ -47,17 +54,13 @@ int main(int argc, const char * argv[]) {
     //Ask Linkedin to show us 10 most recent posts
     
     FeedsManager* feedManager = [[FeedsManager alloc] init];
-    NSArray<Post*>* listOfPosts = [feedManager loadsFeedsForAccount:myAccount amount:10];
+    NSArray<Post*>* listOfPosts = [feedManager loadsFeedsForUser:loginUser amount:10];
     
-    
-    
-    for(int i=0; i<1; i++)
-    {
+    for(int i=0; i<1; i++) {
+        
+        //showing the post
         [feedManager showPosts:listOfPosts];
     
-        //showing the post
-        
-
         //reporting the post
        // [post reportThePost];
         

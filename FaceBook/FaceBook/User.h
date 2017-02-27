@@ -5,11 +5,14 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 @interface User : NSObject
 
 // properties
 
-@property (strong, nonatomic) NSString *firstName,
+@property (strong, nonatomic) NSString *userId,
+*firstName,
 *lastName,
 *email,
 *phoneNumber,
@@ -22,15 +25,16 @@ birthday;
 
 // constructors
 
--(id) initWithFirstName:(NSString*)firstName
-               lastName:(NSString*)lastName
-                  email:(NSString*)email
-            phoneNumber:(NSString*)phoneNumber
-               location:(NSString*)location
-          profilePicURL:(NSString*)profilePicURL
-                    age:(int)age
-               timezome:(int)timezome
-               birthday:(int)birthday;
+-(id) initWithUserId:(NSString*)userId
+           FirstName:(NSString*)firstName
+            lastName:(NSString*)lastName
+               email:(NSString*)email
+         phoneNumber:(NSString*)phoneNumber
+            location:(NSString*)location
+       profilePicURL:(NSString*)profilePicURL
+                 age:(int)age
+            timezome:(int)timezome
+            birthday:(int)birthday;
 
 
 // methods (APIs)
