@@ -228,7 +228,11 @@
 
 -(Post*)addPost:(User *)loginUser {
     
-    NSString *content = @"helloooo";
+    char charContent[500] = {0};
+    scanf("%s",charContent);
+                                    //casting時のoriginal method
+    NSString *content = [NSString stringWithCString:charContent encoding:NSUTF8StringEncoding];
+    
     NSString *date = [self getCurrentDate];
     NSString *postID = @"ajd768";
     NSString *location = @"japan";
@@ -253,5 +257,7 @@
     
     return newPost;
 }
+
+
 
 @end

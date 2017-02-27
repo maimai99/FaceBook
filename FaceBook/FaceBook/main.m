@@ -92,6 +92,8 @@ int main(int argc, const char * argv[]) {
     //step2:addPostをallPosts arrayの最後に追加
     //step3:show
     
+    //TODO:contentをscanfにする
+    
     //return data type をvoidからPostに(直接feedsManager classのmethodの型弄るだけ)
     NSMutableArray<Post*>*allPosts = [feedManager allPosts];
     
