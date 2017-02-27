@@ -18,6 +18,7 @@
                  age:(int)age
             timezome:(int)timezome
             birthday:(int)birthday
+             friends:(NSMutableArray<NSString*>*)friends;
 {
     self = [super init];
     
@@ -34,42 +35,14 @@
         self.age = age;
         self.timezome = timezome;
         self.birthday = birthday;
+        self.friends = friends;
     }
     
     return self;
 }
 
-
--(void) editProfileWithNewfirstName:(NSString*)newFirstName
-                        newLastName:(NSString*)newLastName
-                           newEmail:(NSString*)newEmail
-                     newPhoneNumber:(NSString*)newPhoneNumber
-                        newLocation:(NSString*)newLocation
-                   newProfilePicURL:(NSString*)newProfilePicURL
-                             newAge:(int)newAge
-                        newTimezone:(int)newTimezone
-                        newBirthday:(int)newBirthday
-{
-    self.firstName = newFirstName;
-    self.lastName = newLastName;
-    self.email = newEmail;
-    self.phoneNumber = newPhoneNumber;
-    self.location = newLocation;
-    self.profilePicURL = newProfilePicURL;
-    self.age = newAge;
-    self.timezome = newTimezone;
-    self.birthday = newBirthday;
-}
-
-
--(void) saveProfile
-{
-    NSLog(@"\nAccount has been successfully updated!\n");
-}
-
-
 -(void) printProfileWithUser:(User*)user {
-    NSLog(@"\n==============================\n");
+    NSLog(@"==============================\n");
     NSLog(@"UserID: %@\n", user.userId);
     NSLog(@"Name: %@ %@\n", user.firstName, user.lastName);
     NSLog(@"Email: %@\n", user.email);
@@ -79,7 +52,7 @@
     NSLog(@"Age: %d\n", user.age);
     NSLog(@"Birthday: %d\n", user.birthday);
     NSLog(@"Profile Picture: %@\n", user.profilePicURL);
-    NSLog(@"\n==============================\n");
+    NSLog(@"==============================\n");
 }
 
 @end

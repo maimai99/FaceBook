@@ -4,8 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-
+#import "User.h"
 
 @interface User : NSObject
 
@@ -22,6 +21,7 @@
 @property int age,
 timezome,
 birthday;
+@property NSMutableArray<NSString*>* friends;
 
 
 // constructors
@@ -36,22 +36,11 @@ birthday;
        profilePicURL:(NSString*)profilePicURL
                  age:(int)age
             timezome:(int)timezome
-            birthday:(int)birthday;
+            birthday:(int)birthday
+             friends:(NSMutableArray<NSString*>*)friends;
 
 
 // methods (APIs)
-
--(void) editProfileWithNewfirstName:(NSString*)newFirstName
-                        newLastName:(NSString*)newLastName
-                           newEmail:(NSString*)newEmail
-                     newPhoneNumber:(NSString*)newPhoneNumber
-                        newLocation:(NSString*)newLocation
-                   newProfilePicURL:(NSString*)newProfilePicURL
-                             newAge:(int)newAge
-                        newTimezone:(int)newTimezone
-                        newBirthday:(int)newBirthday;
-
--(void) saveProfile;
 
 -(void) printProfileWithUser:(User*)user;
 

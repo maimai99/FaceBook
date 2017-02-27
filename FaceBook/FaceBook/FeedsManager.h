@@ -23,10 +23,12 @@
 
 // methods (APIs)
 
--(NSArray<Post*>*) loadsFeedsForUser:(User*)loginUser allPosts:(NSMutableArray<Post*>*)allPosts amount:(int)numberOfFeeds;
+-(NSMutableArray<Post*>*) loadsFeedsForUser:(User*)loginUser allPosts:(NSMutableArray<Post*>*)allPosts amount:(int)numberOfFeeds;
 
--(NSMutableArray<Post*>*)allPosts;
+-(NSMutableArray<Post*>*) allPosts;
 
--(void)showPosts:(NSArray*)posts;
--(Post*)addPost:(User *)loginUser ;
+-(void) showPosts:(NSArray*)posts;
+
+-(Post*) addPost:(User*)loginUser;
+
 @end

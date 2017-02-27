@@ -23,12 +23,15 @@ int main(int argc, const char * argv[]) {
     NSString *email,
              *password;
     
+    printf("-------------------------------\nWelcome to Facebook!\n-------------------------------\n");
+    printf("\nTo login, enter your email and password.\n\n");
+    
     while (loginUser.userId == nil) {
-        
-        NSLog(@"Enter your email:");
+        printf("Email:");
         scanf("%s", chrArrEmail);
-        NSLog(@"Enter your password:");
+        printf("Password:");
         scanf("%s", chrArrPassword);
+        printf("\n\n");
         
         email = [NSString stringWithCString:chrArrEmail encoding:NSUTF8StringEncoding];
         password = [NSString stringWithCString:chrArrPassword encoding:NSUTF8StringEncoding];
@@ -36,32 +39,24 @@ int main(int argc, const char * argv[]) {
         loginUser = [account isAccountValid:email password:password];
         
         if (loginUser.userId == nil) {
-            NSLog(@"\n\nThe account is Not valid. Try again.\n\n");
+            printf("The account is Not valid. Try again.\n\n");
         }
     }
     
-    NSLog(@"\n\nThe account is valid\n\n");
+    printf("The account is valid.\n\n");
     
     // Show profile
     [user printProfileWithUser:loginUser];
     
-    // Show posts
+    // Show all posts
     FeedsManager* feedManager = [[FeedsManager alloc] init];
-    NSArray<Post*>* listOfPosts = [feedManager loadsFeedsForUser:loginUser allPosts:[feedManager allPosts] amount:10];
-    
-    [feedManager showPosts:listOfPosts];
-    
-    //step1:get all post array
-    //convert return data type from void to Post
-    NSMutableArray<Post*>*allPosts = [feedManager allPosts];
-    
-    
-    //it can be also written with 2 line.(make new value and set)
-    
-    //step2:add "addPost" in the end of "allPosts" array
+    NSMutableArray<Post*>* allPosts = [feedManager loadsFeedsForUser:loginUser allPosts:[feedManager allPosts] amount:10];
+    [feedManager showPosts:allPosts];
+        
+    // Add new post to "allPosts" array
     [allPosts addObject:[feedManager addPost:loginUser]];
     
-    //step3:show
+    // Show all posts again
     [feedManager showPosts:[feedManager loadsFeedsForUser:loginUser allPosts:allPosts amount:10]];
     
     return NSApplicationMain(argc, argv);

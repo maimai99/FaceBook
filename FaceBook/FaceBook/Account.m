@@ -34,7 +34,8 @@
                    profilePicURL:@"http://gmail.com"
                    age:24
                    timezome:0000
-                   birthday:19920604];
+                   birthday:19920604
+                   friends:[[NSMutableArray alloc] initWithObjects:@"43q5ru", @"4q23uh", @"9fawhr", nil]];
     
     User *user2 = [[User alloc]
                    initWithUserId:@"43q5ru"
@@ -47,7 +48,8 @@
                    profilePicURL:@"http://gmail.com"
                    age:25
                    timezome:0000
-                   birthday:19901104];
+                   birthday:19901104
+                   friends:[[NSMutableArray alloc] initWithObjects:@"542joi", @"4q23uh", nil]];
     
     User *user3 = [[User alloc]
                    initWithUserId:@"4q23uh"
@@ -60,7 +62,8 @@
                    profilePicURL:@"http://gmail.com"
                    age:20
                    timezome:0000
-                   birthday:19901104];
+                   birthday:19901104
+                   friends:[[NSMutableArray alloc] initWithObjects:@"542joi", @"43q5ru", @"9fawhr", nil]];
     
     User *user4 = [[User alloc]
                    initWithUserId:@"9fawhr"
@@ -73,7 +76,8 @@
                    profilePicURL:@"http://gmail.com"
                    age:40
                    timezome:0400
-                   birthday:19901104];
+                   birthday:19901104
+                   friends:[[NSMutableArray alloc] initWithObjects:@"542joi", @"4q23uh", nil]];
     
     NSMutableArray<User*> *allUsers = [[NSMutableArray alloc] initWithObjects:user1, user2, user3, user4, nil];
     

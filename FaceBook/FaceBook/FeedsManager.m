@@ -51,10 +51,6 @@
                            type:2
                            dataURL:@"http://yahoo.co.jp"];
     
-    NSMutableArray<Attachment*>* attachments = [[NSMutableArray alloc]
-                                                initWithObjects:attach1,attach2,nil];
-    
-    
     PostComment *comment1 = [[PostComment alloc]
                              initWithCommentId:@"hjk678"
                              comment:@"Hi"
@@ -62,16 +58,10 @@
                              date:@"2017/02/17 22:15:46"
                              likeCount:1];
     
-    NSMutableArray<PostComment*>* comments = [[NSMutableArray alloc]
-                                              initWithObjects:comment1, nil];
-    
     Like *like1 = [[Like alloc]
                    initWithLikeID:@"nmk245"
                    likeOwner:users[0]
                    date:@"2017/02/17 22:15:46"];
-    
-    NSMutableArray<Like*>* likes = [[NSMutableArray alloc]
-                                    initWithObjects:like1, nil];
     
     
     Post *post1 = [[Post alloc]
@@ -81,9 +71,9 @@
                    author:users[0]
                    location:@"south vancouver"
                    likeCount:1
-                   attachments:attachments
-                   likes:likes
-                   comments:comments
+                   attachments:[[NSMutableArray alloc] initWithObjects:attach1,attach2,nil]
+                   likes:[[NSMutableArray alloc] initWithObjects:like1, nil]
+                   comments:[[NSMutableArray alloc] initWithObjects:comment1, nil]
                    privacy:@"ALL_FRIENDS"];
     
     Post *post2 = [[Post alloc]
@@ -93,9 +83,9 @@
                    author:users[1]
                    location:@"west vancouver"
                    likeCount:2
-                   attachments:attachments
-                   likes:likes
-                   comments:comments
+                   attachments:[[NSMutableArray alloc]init]
+                   likes:[[NSMutableArray alloc]init]
+                   comments:[[NSMutableArray alloc]init]
                    privacy:@"ALL_FRIENDS"];
     
     Post *post3 = [[Post alloc]
@@ -105,21 +95,21 @@
                    author:users[2]
                    location:@"west vancouver"
                    likeCount:2
-                   attachments:attachments
-                   likes:likes
-                   comments:comments
+                   attachments:[[NSMutableArray alloc]init]
+                   likes:[[NSMutableArray alloc]init]
+                   comments:[[NSMutableArray alloc]init]
                    privacy:@"SELF"];
     
     Post *post4 = [[Post alloc]
                    initWithContent:@"Hello, this is post4."
                    postId:@"eait43"
-                   date:@"2017/02/20 10:10:00"
+                   date:@"2017/02/20 10:00:00"
                    author:users[2]
                    location:@"East Vancouver"
                    likeCount:0
-                   attachments:attachments
-                   likes:likes
-                   comments:comments
+                   attachments:[[NSMutableArray alloc]init]
+                   likes:[[NSMutableArray alloc]init]
+                   comments:[[NSMutableArray alloc]init]
                    privacy:@"EVERYONE"];
     
     Post *post5 = [[Post alloc]
@@ -129,9 +119,9 @@
                    author:users[3]
                    location:@"New York"
                    likeCount:0
-                   attachments:attachments
-                   likes:likes
-                   comments:comments
+                   attachments:[[NSMutableArray alloc]init]
+                   likes:[[NSMutableArray alloc]init]
+                   comments:[[NSMutableArray alloc]init]
                    privacy:@"ALL_FRIENDS"];
     
     
@@ -141,51 +131,26 @@
 }
 
 
-
--(NSArray<Post*>*) loadsFeedsForUser:(User*)loginUser allPosts:(NSMutableArray<Post*>*)allPosts amount:(int)numberOfFeeds {
+-(NSMutableArray<Post*>*) loadsFeedsForUser:(User*)loginUser allPosts:(NSMutableArray<Post*>*)allPosts amount:(int)numberOfFeeds {
     
-    // Get all users
-    Account *account = [[Account alloc] init];
-    NSMutableArray<User*> *users = [account allUsers];
-    
-
-    // -------------------------------------------------------
-    // Define friends list for the account user
-    // -------------------------------------------------------
-    
-    NSMutableArray<User*> *friendList;
-    
-    if ([loginUser.userId isEqual:users[0].userId]) { // Mai
-        
-        friendList = [@[users[1], users[2], users[3]] mutableCopy];
-        
-    } else if ([loginUser.userId isEqual:users[1].userId]) { // Maki
-        
-        friendList = [@[users[0], users[2]] mutableCopy];
-        
-    } else {
-        
-        friendList = [@[] mutableCopy];
-    }
-    
-    
-    // -------------------------------------------------------
     // Narrow posts down to the friend's posts of account user
-    // -------------------------------------------------------
     
     NSMutableArray<Post*>* feeds = [@[] mutableCopy];
     
     for (Post *post in allPosts) {
         
-        for (User *friend in friendList) {
+        for (NSString *friend in loginUser.friends) {
             
             // Only yours or frinds' posts, and the privacy setting is not "SELF"
             
-            if (([post.author.userId isEqual:loginUser.userId] || [post.author.userId isEqual:friend.userId]) && ![post.privacy isEqualToString:@"SELF"]) {
+            if ([post.author.userId isEqual:loginUser.userId] || [post.author.userId isEqual:friend]) {
                 
-                [feeds addObject:post];
-                
-                break;
+                if (![post.privacy isEqualToString:@"SELF"] || ([post.privacy isEqualToString:@"SELF"] && [loginUser.userId isEqual:post.author.userId])) {
+                    
+                    [feeds addObject:post];
+                    
+                    break;
+                }
             }
         }
     }
@@ -194,34 +159,34 @@
 }
 
 
-
--(void)showPosts:(NSArray<Post*>*)posts {
+-(void) showPosts:(NSArray<Post*>*)posts {
     
     for (Post *post in posts) {
         
-        NSLog(@"\n\n%@\n%@ %@\n%@\n",
-              post.date,
-              post.author.firstName, post.author.lastName,
-              post.content);
+        NSLog(@"------------------------------------\n");
+        NSLog(@"Date:    %@\n", post.date);
+        NSLog(@"Author:  %@ %@\n", post.author.firstName, post.author.lastName);
+        NSLog(@"Content: %@\n", post.content);
         
-        for(Attachment *attachment in post.attachments){
+        for (Attachment *attachment in post.attachments) {
 
-            NSLog(@"%@\n", attachment.dataURL);
+            NSLog(@"Attach: %@\n", attachment.dataURL);
         }
         
-        for(PostComment *comment in post.comments){
+        for (PostComment *comment in post.comments) {
             
-            NSLog(@"%@\n", comment.comment);
+            NSLog(@"Comment: %@\n", comment.comment);
         }
     }
     
-    NSLog(@"\n\n");
+    NSLog(@"=====================================\n");
 }
+
 
 -(Post*) addPost:(User *)loginUser {
     
     char charContent[500] = {0};
-    NSLog(@"[Creat new post]\nEnter comment:");
+    NSLog(@"[Create new post] Enter comment:");
     scanf("%s", charContent);
     
     //casting時のoriginal method
