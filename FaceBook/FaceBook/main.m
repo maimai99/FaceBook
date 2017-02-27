@@ -51,14 +51,14 @@ int main(int argc, const char * argv[]) {
     
     [feedManager showPosts:listOfPosts];
     
-    //step1:全部のpostのarrayを取得
-    //return data type をvoidからPostに(直接feedsManager classのmethodの型弄るだけ)
+    //step1:get all post array
+    //convert return data type from void to Post
     NSMutableArray<Post*>*allPosts = [feedManager allPosts];
     
     
-    //分かりにくかったら変数（箱）用意して書いてみても良い。(二行に分けてね)
+    //it can be also written with 2 line.(make new value and set)
     
-    //step2:addPostをallPosts arrayの最後に追加
+    //step2:add "addPost" in the end of "allPosts" array
     [allPosts addObject:[feedManager addPost:loginUser]];
     
     //step3:show
