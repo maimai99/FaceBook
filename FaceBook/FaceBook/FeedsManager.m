@@ -50,13 +50,18 @@
                            initWithAttachementId:@"abc123"
                            type:2
                            dataURL:@"http://yahoo.co.jp"];
+
     
-    PostComment *comment1 = [[PostComment alloc]
-                             initWithCommentId:@"hjk678"
-                             comment:@"Hi"
-                             commentAuthor:users[0]
-                             date:@"2017/02/17 22:15:46"
-                             likeCount:1];
+    
+    NSMutableArray<PostComment*>* replies = [[NSMutableArray<PostComment*> alloc] init];
+    
+    PostComment* reply1 = [[PostComment alloc]initWithPostId:@"atu867" replies:NULL author:users[1] date:@"2017/02/17 20:14:46" likeCount:4];
+    
+    [replies addObject:reply1];
+    
+    
+    PostComment *comment1 = [[PostComment alloc]initWithPostId:@"atu867" replies:replies author:users[1] date:@"2017/02/17 22:15:46" likeCount:2];
+    
     
     Like *like1 = [[Like alloc]
                    initWithLikeID:@"nmk245"
@@ -65,8 +70,8 @@
     
     
     Post *post1 = [[Post alloc]
-                   initWithContent:@"Hello, this is post1."
-                   postId:@"uhs357"
+                   initWithPostId:@"uhs357"
+                   content:@"Hello, this is post1."
                    date:@"2017/02/15 22:15:46"
                    author:users[0]
                    location:@"south vancouver"
@@ -77,8 +82,8 @@
                    privacy:@"ALL_FRIENDS"];
     
     Post *post2 = [[Post alloc]
-                   initWithContent:@"Hello, this is post2."
-                   postId:@"poj879"
+                   initWithPostId:@"poj879"
+                   content:@"Hello, this is post2."
                    date:@"2017/02/17 22:15:46"
                    author:users[1]
                    location:@"west vancouver"
@@ -89,8 +94,8 @@
                    privacy:@"ALL_FRIENDS"];
     
     Post *post3 = [[Post alloc]
-                   initWithContent:@"Hello, this is post3."
-                   postId:@"5ertjt"
+                   initWithPostId:@"5ertjt"
+                   content:@"Hello, this is post3."
                    date:@"2017/02/18 22:15:46"
                    author:users[2]
                    location:@"west vancouver"
@@ -101,8 +106,8 @@
                    privacy:@"SELF"];
     
     Post *post4 = [[Post alloc]
-                   initWithContent:@"Hello, this is post4."
-                   postId:@"eait43"
+                   initWithPostId:@"eait43"
+                   content:@"Hello, this is post4."
                    date:@"2017/02/20 10:00:00"
                    author:users[2]
                    location:@"East Vancouver"
@@ -113,8 +118,8 @@
                    privacy:@"EVERYONE"];
     
     Post *post5 = [[Post alloc]
-                   initWithContent:@"Hello, this is post5."
-                   postId:@"4rji3q"
+                   initWithPostId:@"4rji3q"
+                   content:@"Hello, this is post5."
                    date:@"2017/02/20 10:00:00"
                    author:users[3]
                    location:@"New York"
@@ -175,7 +180,7 @@
         
         for (PostComment *comment in post.comments) {
             
-            NSLog(@"Comment: %@\n", comment.comment);
+            NSLog(@"Comment: %@\n", comment.replies);
         }
     }
     
@@ -195,8 +200,8 @@
     NSString *postID = @"ajd768";
     
     Post *newPost = [[Post alloc]
-                     initWithContent:content
-                     postId:postID
+                     initWithPostId:postID
+                     content:content
                      date:[self getCurrentDate]
                      author:loginUser
                      location:@"Vancouver"

@@ -8,19 +8,14 @@
 #import "Attachment.h"
 #import "Like.h"
 #import "PostComment.h"
+#import "PostAndPostComment.h"
 
-@interface Post : NSObject
+@interface Post : PostAndPostComment
 
 
 //properties
 
-@property (strong, nonatomic) NSString *postId,
-*content,
-*location,
-*privacy;
-@property (strong, nonatomic) NSString *date;
-@property (strong, nonatomic) User *author;
-@property int likeCount;
+@property (strong, nonatomic) NSString *content, *location, *privacy;
 @property (strong, nonatomic) NSMutableArray<Attachment*> *attachments;
 @property (strong, nonatomic) NSMutableArray<Like*> *likes;
 @property (strong, nonatomic) NSMutableArray<PostComment*> *comments;
@@ -30,8 +25,8 @@
 
 -(id)
 
-      initWithContent:(NSString*)content
-        postId:(NSString*)postId
+      initWithPostId:(NSString*)postId
+                content:(NSString*)content
                  date:(NSString*)date
                author:(User*)author
                location:(NSString*)location

@@ -7,21 +7,18 @@
 
 @implementation PostComment
 
--(id) initWithCommentId:(NSString*)commentId
-                comment:(NSString*)comment
-          commentAuthor:(User*)commentAuthor
-                   date:(NSString*)date
-              likeCount:(int)likeCount
+-(id) initWithPostId:(NSString*)postId
+             replies:(NSMutableArray<PostComment*> *)replies
+              author:(User*)author
+                date:(NSString*)date
+           likeCount:(int)likeCount commentType:(int) commentType;
 {
-    self = [super init];
+    self = [super initWithPostId:postId replies:replies author:author date:date likeCount:likeCount];
     
     if(self)
     {
-        self.commentId = commentId;
-        self.comment = comment;
-        self.commentAuthor = commentAuthor;
-        self.date = date;
-        self.likeCount = likeCount;
+        self.commentType = commentType;
+        
     }
     
     return  self;

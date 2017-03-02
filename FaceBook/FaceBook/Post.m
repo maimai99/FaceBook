@@ -8,30 +8,25 @@
 @implementation Post
 
 
--(id)initWithContent:(NSString*)content
-                postId:(NSString*)postId
+-(id)initWithPostId:(NSString*)postId
+                content:(NSString*)content
                  date:(NSString*)date
                author:(User*)author
                location:(NSString*)location
-        likeCount:(int)likeCount
+            likeCount:(int)likeCount
           attachments:(NSMutableArray<Attachment*>*)attachments
                 likes:(NSMutableArray<Like*>*)likes
-             comments:(NSMutableArray<PostComment*>*)comments
+             comments:(NSMutableArray<PostComment*>*)replies
                privacy:(NSString*)privacy
 {
-    self = [super init];
+    self = [super initWithPostId:postId replies:replies author:author date:date likeCount:likeCount];
+
     
     if (self)
     {
-        self.postId = postId;
-        self.content = content;
-        self.date = date;
-        self.author = author;
         self.location = location;
-        self.likeCount = likeCount;
         self.attachments = attachments;
-        self.likes = likes;
-        self.comments = comments;
+        self.replies = replies;
         self.privacy = privacy;
     }
     
