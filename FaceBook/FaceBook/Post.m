@@ -24,6 +24,7 @@
     
     if (self)
     {
+        self.content = content;
         self.location = location;
         self.attachments = attachments;
         self.replies = replies;
